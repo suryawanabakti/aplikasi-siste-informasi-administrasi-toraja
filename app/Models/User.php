@@ -14,6 +14,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
+    public function masyarakat()
+    {
+        return $this->hasOne(DataMasyarakat::class);
+    }
+
     /**
      * The "booting" function of model
      *
@@ -22,32 +27,30 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($model) {
-            if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::uuid();
-            }
+
+        // auto-sets values on creation
+        static::creating(function ($query) {
+            $query->uuid =  (string) Str::uuid();
         });
     }
 
+    // public function getRouteKeyName()
+    // {
+    //     return 'uuid';
+    // }
     /**
      * Get the value indicating whether the IDs are incrementing.
      *
      * @return bool
      */
-    public function getIncrementing()
-    {
-        return true;
-    }
+
 
     /**
      * Get the auto-incrementing key type.
      *
      * @return string
      */
-    public function getKeyType()
-    {
-        return 'string';
-    }
+
 
     protected $fillable = [
         'name',

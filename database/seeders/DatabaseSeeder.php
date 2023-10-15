@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DataMasyarakat;
 use Carbon\Carbon;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -21,26 +22,26 @@ class DatabaseSeeder extends Seeder
     {
         $user = \App\Models\User::create([
             // 'id' => Str::uuid(),
-            'name' => 'Surya Wana Bakti',
-            'email' => 'surya@square',
+            'name' => 'Melda',
+            'email' => 'melda@admin',
             'password' => bcrypt('qwerty123'),
             'last_seen' => Carbon::now(),
-            'position' => 'super admin'
         ]);
 
-        $usera = \App\Models\User::factory(5)->create();
+        $user3 = \App\Models\User::create([
+            // 'id' => Str::uuid(),
+            'name' => 'Henrik Panggoa',
+            'email' => 'henrik@kepaladesa',
+            'password' => bcrypt('qwerty123'),
+            'last_seen' => Carbon::now(),
+        ]);
 
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'masyarakat']);
+        Role::create(['name' => 'kepala desa']);
 
+        $user->assignRole('admin');
 
-        $roleSuper = Role::create(['name' => 'super-admin']);
-        $roleAdmin = Role::create(['name' => 'admin']);
-
-        $user->assignRole($roleSuper);
-
-
-        $permission = Permission::create(['name' => 'full-users']);
-
-        $roleSuper->givePermissionTo($permission);
-        // $roleAdmin->givePermissionTo($permission);
+        $user3->assignRole('kepala desa');
     }
 }

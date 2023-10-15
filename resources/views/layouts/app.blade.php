@@ -7,12 +7,13 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Square | Application Starter Pack Blade</title>
+    <title>SIA Toraja</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon"
+        href="https://saluallo.desa.id/wp-content/uploads/2019/01/LOGO-KABUPATEN-TANA-TORAJA.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,6 +58,7 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -87,8 +89,7 @@
                             <div
                                 class="container-fluid d-flex flex-md-row flex-column justify-content-between align-items-md-center gap-1 container-p-x py-3">
                                 <div>
-                                    <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/landing/"
-                                        target="_blank" class="footer-text fw-bolder">Square</a>
+                                    <a href="#" target="_blank" class="footer-text fw-bolder">Sia Toraja</a>
                                     ©
                                 </div>
                                 <div>
@@ -149,10 +150,12 @@
 
     <!-- Page JS -->
     <script src="/assets/js/dashboards-analytics.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+    @stack('js')
     <script>
         $(document).ready(function() {
             var $btnUp = $('#btnUp').hide();
