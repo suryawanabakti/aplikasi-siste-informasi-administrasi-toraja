@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <b>Jumlah Pendaftar</b><br>
-                        {{ 0 }}
+                        {{ $jumlahPendaftar }}
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-body">
                         <b>Jumlah Masyarakat</b><br>
-                        {{ 0 }}
+                        {{ $jumlahMasyarakat }}
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-body">
                         <b>Jumlah Permohonan</b><br>
-                        {{ 0 }}
+                        {{ $jumlahPermohonan }}
                     </div>
                 </div>
             </div>

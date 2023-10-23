@@ -8,6 +8,7 @@ use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProfileController;
 use App\Models\PermohonanSurat;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,15 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+    $jumlahPendaftar = User::whereHas('masyarakat', function ($query) {
+        $query->where('status', 'diproses');
+    })->count();
+    $jumlahMasyarakat = User::whereHas('masyarakat', function ($query) {
+        $query->where('status', 'diterima');
+    })->count();
+    $jumlahPermohonan = PermohonanSurat::count();
+
+    return view('admin.dashboard', compact('jumlahPendaftar', 'jumlahMasyarakat', 'jumlahPermohonan'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/masyarakat/dashboard', function () {
@@ -71,7 +80,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/masyarakat/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('masyarakat.pengajuan-surat.store');
 
     Route::get('/masyarakat/pengajuan-surat/create', [PengajuanSuratController::class, 'create'])->name('masyarakat.pengajuan-surat.create');
-
 
     Route::get('/kepaladesa/pengajuan-surat', [ApprovePengajuanSuratController::class, 'index'])->name('kepaladesa.pengajuan-surat.index');
     Route::get('/kepaladesa/pengajuan-surat/{pengajuan}/terima', [ApprovePengajuanSuratController::class, 'terima'])->name('kepaladesa.pengajuan-surat.terima');
