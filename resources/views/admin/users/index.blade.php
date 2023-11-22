@@ -8,7 +8,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="table-responsive text-nowrap" id="">
                             <table class="table table-hover" id="myTable">
                                 <thead>
@@ -18,6 +17,7 @@
                                         <th>Level</th>
                                         <th>Status</th>
                                         <th>Last Seen</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
@@ -39,15 +39,22 @@
                                             </td>
                                             <td>{{ \Carbon\Carbon::createFromDate($user->created_at)->diffForHumans() }}
                                             </td>
+                                            <td>
+                                                @if ($user->roles[0]->name == 'masyarakat')
+                                                    <a class="btn btn-danger btn-icon"
+                                                        href="/admin/master-data/users/{{ $user->id }}/delete"
+                                                        onclick="confirm('Apakah anda yaking menghapus user ini ?')">
+                                                        <i class="bx bx-trash"></i>
+                                                    </a>
+                                                @endif
+
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
-
                 </div>
 
             </div>

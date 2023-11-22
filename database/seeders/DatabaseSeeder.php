@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $user3 = \App\Models\User::create([
             // 'id' => Str::uuid(),
             'name' => 'Henrik Panggoa',
-            'email' => 'henrik@kepaladesa',
+            'email' => 'henrik@kepalalurah',
             'password' => bcrypt('qwerty123'),
             'last_seen' => Carbon::now(),
         ]);

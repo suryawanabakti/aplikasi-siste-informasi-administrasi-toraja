@@ -14,7 +14,7 @@
                             <table class="table table-hover" id="myTable">
                                 <thead>
                                     <tr>
-                                        <th>Tanggal</th>
+                                        <th>Tanggals</th>
                                         <th>Nama</th>
                                         <th>Jenis Surat</th>
                                         <th>KTP</th>

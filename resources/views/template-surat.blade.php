@@ -38,11 +38,13 @@
     <table style="margin-top: 10px">
         <tr>
             <td>Nama</td>
-            <td>: {{ $permohonanSurat->nama }}</td>
+            <td>: {{ $permohonanSurat->user->name }}</td>
         </tr>
         <tr>
             <td>Tempat / Tgl.Lahir</td>
-            <td>: Kota Baru, 12 Januari 2003</td>
+            <td>: {{ $permohonanSurat->user->masyarakat->tempat_lahir }},
+                {{ \Carbon\Carbon::createFromDate($permohonanSurat->user->masyarakat->tanggal_lahir)->format('d M Y ') }}
+            </td>
         </tr>
         <tr>
             <td>NIK</td>
@@ -83,7 +85,7 @@
         <br>
         <br>
         @if ($permohonanSurat->approve === 'terima')
-            {!! QrCode::size(40)->generate(url('/permohonan-surat/skk/' . $permohonanSurat->id)) !!}
+            {!! QrCode::size(40)->generate(url('/surat/' . $permohonanSurat->uuid)) !!}
         @endif
 
         <br>

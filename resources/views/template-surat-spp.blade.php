@@ -101,7 +101,7 @@
         <br>
         <br>
         @if ($permohonanSurat->approve === 'terima')
-            {!! QrCode::size(40)->generate(url('/permohonan-surat/spp/' . $permohonanSurat->id)) !!}
+            {!! QrCode::size(40)->generate(url('/surat/' . $permohonanSurat->uuid)) !!}
         @endif
 
         <br>

@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/master-data/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/master-data/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::get('/admin/master-data/users/{user}', [UserController::class, 'show'])->name('admin.users.show');
+    Route::get('/admin/master-data/users/{user}/delete', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
     Route::get('/admin/pengajuan-surat-skk', [AdminPengajuanSuratController::class, 'indexSkk'])->name('admin.pengajuan-surat-skk.index');
     Route::get('/admin/pengajuan-surat-spp', [AdminPengajuanSuratController::class, 'indexSpp'])->name('admin.pengajuan-surat-spp.index');

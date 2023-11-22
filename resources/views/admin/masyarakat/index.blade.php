@@ -22,6 +22,7 @@
                                         <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Golongan Darah</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
@@ -35,7 +36,15 @@
                                             <td>{{ $user->masyarakat->tempat_lahir }}</td>
                                             <td>{{ $user->masyarakat->tanggal_lahir }}</td>
                                             <td>{{ $user->masyarakat->golongan_darah }}</td>
-
+                                            <td>
+                                                @if ($user->roles[0]->name == 'masyarakat')
+                                                    <a class="btn btn-danger btn-icon"
+                                                        href="/admin/master-data/users/{{ $user->id }}/delete"
+                                                        onclick="confirm('Apakah anda yaking menghapus user ini ?')">
+                                                        <i class="bx bx-trash"></i>
+                                                    </a>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

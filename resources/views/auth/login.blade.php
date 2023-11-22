@@ -64,14 +64,14 @@
     <script src="/assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body style="background: url('background.jpg'); background-size:cover">
     <!-- Content -->
 
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register -->
-          <div class="card">
+          <div class="card" style="opacity: 0.8">
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
@@ -81,7 +81,7 @@
               </div>
               <!-- /Logo -->
               <h4 class="mb-2">Welcome to Sistem Informasi Administrasi Toraja! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              {{-- <p class="mb-4">Please sign-in to your account and start the adventure</p> --}}
 
               <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -113,12 +113,7 @@
                 </div>
 
             
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div>
+        
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>

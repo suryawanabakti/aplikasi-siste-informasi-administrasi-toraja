@@ -9,7 +9,7 @@ class ApprovePengajuanSuratController extends Controller
 {
     public function index()
     {
-        $pengajuan = PermohonanSurat::all();
+        $pengajuan = PermohonanSurat::orderBy('jenis_surat', 'asc')->get();
         return view('kepaladesa.pengajuan-surat.index', compact('pengajuan'));
     }
 
